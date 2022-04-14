@@ -1,9 +1,9 @@
 import XCTest
 @testable import DomainModel
 
-class PersonTests: XCTestCase {
+/*class PersonTests: XCTestCase {
 
-    func testPerson() {
+   func testPerson() {
         let ted = Person(firstName: "Ted", lastName: "Neward", age: 45)
         XCTAssert(ted.toString() == "[Person: firstName:Ted lastName:Neward age:45 job:nil spouse:nil]")
     }
@@ -72,4 +72,4 @@ class FamilyTests : XCTestCase {
         ("testFamily", testFamily),
         ("testFamilyWithKids", testFamilyWithKids),
     ]
-}
+}*/
