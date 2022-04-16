@@ -1,7 +1,7 @@
 import XCTest
 @testable import DomainModel
 
-/*class PersonTests: XCTestCase {
+class PersonTests: XCTestCase {
 
    func testPerson() {
         let ted = Person(firstName: "Ted", lastName: "Neward", age: 45)
@@ -13,7 +13,7 @@ import XCTest
 
         matt.job = Job(title: "Burger-Flipper", type: Job.JobType.Hourly(5.5))
         XCTAssert(matt.job == nil)
-
+    
         matt.spouse = Person(firstName: "Bambi", lastName: "Jones", age: 42)
         XCTAssert(matt.spouse == nil)
     }
@@ -31,12 +31,12 @@ import XCTest
     static var allTests = [
         ("testPerson", testPerson),
         ("testAgeRestrictions", testAgeRestrictions),
-        ("testAdultAgeRestrictions", testAdultAgeRestrictions),
+         ("testAdultAgeRestrictions", testAdultAgeRestrictions),
     ]
 }
 
 class FamilyTests : XCTestCase {
-  
+
     func testFamily() {
         let ted = Person(firstName: "Ted", lastName: "Neward", age: 45)
         ted.job = Job(title: "Gues Lecturer", type: Job.JobType.Salary(1000))
@@ -44,7 +44,6 @@ class FamilyTests : XCTestCase {
         let charlotte = Person(firstName: "Charlotte", lastName: "Neward", age: 45)
 
         let family = Family(spouse1: ted, spouse2: charlotte)
-
         let familyIncome = family.householdIncome()
         XCTAssert(familyIncome == 1000)
     }
@@ -65,6 +64,7 @@ class FamilyTests : XCTestCase {
         let _ = family.haveChild(matt)
 
         let familyIncome = family.householdIncome()
+        print(familyIncome)
         XCTAssert(familyIncome == 12000)
     }
   
@@ -72,4 +72,4 @@ class FamilyTests : XCTestCase {
         ("testFamily", testFamily),
         ("testFamilyWithKids", testFamilyWithKids),
     ]
-}*/
+}

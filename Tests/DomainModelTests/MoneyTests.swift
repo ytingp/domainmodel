@@ -80,7 +80,50 @@ class MoneyTests: XCTestCase {
     XCTAssert(total.amount == 10)
     XCTAssert(total.currency == "GBP")
   }
-
+// Extra Credit
+    func testSubUSDtoUSD() {
+        let total = tenUSD.subtract(tenUSD)
+        XCTAssert(total.amount == 0)
+        XCTAssert(total.currency == "USD")
+    }
+    func testSubUSDtoGBP() {
+        let total = tenUSD.subtract(fiveGBP)
+        print(total)
+        XCTAssert(total.amount == 0)
+        XCTAssert(total.currency == "USD")
+    }
+   func testSubUSDtoEUR() {
+        let total = tenUSD.subtract(fifteenEUR)
+        XCTAssert(total.amount == 0)
+        XCTAssert(total.currency == "USD")
+    }
+    func testSubUSDtoCAN() {
+        let total = tenUSD.subtract(fifteenCAN)
+        print(total)
+        XCTAssert(total.amount == -2)
+        XCTAssert(total.currency == "USD")
+    }
+    func testAddUSDtoEUR() {
+      let total = tenUSD.add(fifteenEUR)
+      XCTAssert(total.amount == 10)
+      XCTAssert(total.currency == "EUR")
+    }
+    func testAddUSDtoCAN() {
+      let total = tenUSD.add(fifteenCAN)
+      XCTAssert(total.amount == 10)
+      XCTAssert(total.currency == "CAN")
+    }
+    func testUSDtoJPY() {
+      let gbp = tenUSD.convert("JPY")
+      XCTAssert(gbp.currency == "nil")
+      XCTAssert(gbp.amount == 0)
+    }
+    // make this program only work with our own currencies
+    func testCannotCreateMoney() {
+      let oneUSD = Money(amount: 1, currency: "JPY")
+      XCTAssert(oneUSD.amount == 0)
+      XCTAssert(oneUSD.currency == "nil")
+    }
     static var allTests = [
         ("testCanICreateMoney", testCanICreateMoney),
 
@@ -90,12 +133,23 @@ class MoneyTests: XCTestCase {
         ("testGBPtoUSD", testGBPtoUSD),
         ("testEURtoUSD", testEURtoUSD),
         ("testCANtoUSD", testCANtoUSD),
-//        ("testUSDtoEURtoUSD", testUSDtoEURtoUSD),
- //       ("testUSDtoGBPtoUSD", testUSDtoGBPtoUSD),
-  //      ("testUSDtoCANtoUSD", testUSDtoCANtoUSD),
+        ("testUSDtoEURtoUSD", testUSDtoEURtoUSD),
+        ("testUSDtoGBPtoUSD", testUSDtoGBPtoUSD),
+        ("testUSDtoCANtoUSD", testUSDtoCANtoUSD),
    
         ("testAddUSDtoUSD", testAddUSDtoUSD),
         ("testAddUSDtoGBP", testAddUSDtoGBP),
+        
+        //extra
+        ("testSubUSDtoUSD", testSubUSDtoUSD),  //1
+        ("testSubUSDtoGBP", testSubUSDtoGBP),  //2
+        ("testSubUSDtoEUR", testSubUSDtoEUR),  //3
+        ("testSubUSDtoCAN", testSubUSDtoCAN),  //4
+        ("testAddUSDtoEUR", testAddUSDtoEUR),  //5
+        ("testAddUSDtoCAN", testAddUSDtoCAN),  //6
+        ("testUSDtoJPY", testUSDtoJPY),        //7
+        ("testCannotCreateMoney", testCannotCreateMoney) //8
+        
     ]
 }
 
